@@ -7,7 +7,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = { darkMode: 'class' }
+        tailwind.config = { 
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ff6b00', // Warna Orange IQL
+                    }
+                }
+            }
+        }
     </script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
@@ -15,61 +24,60 @@
         .smooth-transition { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .text-red-500 { color: #ef4444 !important; }
         .fade { animation: fadeAnim 1.5s; }
         @keyframes fadeAnim { from {opacity: .6} to {opacity: 1} }
     </style>
 </head>
 <body class="bg-[#fcfcfc] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-500">
 
-    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed top-6 right-6 z-[70] bg-white/80 dark:bg-zinc-800/80 p-3 rounded-full shadow-xl backdrop-blur-md active:scale-90 transition-all">
+    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed top-6 right-6 z-[70] bg-white/80 dark:bg-zinc-800/80 p-3 rounded-full shadow-xl backdrop-blur-md active:scale-90 transition-all border border-orange-100 dark:border-zinc-700">
         <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
     </button>
 
-    <section class="relative h-[65vh] md:h-[85vh] w-full overflow-hidden bg-zinc-200 dark:bg-zinc-900">
+    <section class="relative h-[40vh] md:h-[55vh] w-full overflow-hidden bg-zinc-200 dark:bg-zinc-900">
         <div id="hero-slider" class="h-full w-full">
             <div class="mySlides h-full w-full hidden fade">
                 <img src="img/banner1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200'">
-                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">IQL Premium</h2>
-                </div>
             </div>
             <div class="mySlides h-full w-full hidden fade">
                 <img src="img/banner2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200'">
-                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">Handcrafted Leather</h2>
-                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div class="text-center">
+                <h2 class="text-white text-3xl md:text-5xl font-serif italic tracking-tighter mb-2">IQL Premium</h2>
+                <div class="h-1 w-12 bg-brand mx-auto rounded-full"></div>
             </div>
         </div>
     </section>
 
-    <header class="py-16 px-6 text-center">
+    <header class="py-12 px-6 text-center">
         <h1 class="text-3xl font-extrabold tracking-tighter uppercase mb-2 italic">Saka</h1>
-        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12">Quality That Speaks For Itself</p>
+        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40 mb-10">Quality That Speaks For Itself</p>
         
         <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto">
-            <a href="#recent" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
+            <a href="#recent" class="bg-brand text-white p-5 rounded-[2.2rem] shadow-lg shadow-orange-500/20 hover:scale-105 transition-all">
                 <span class="text-2xl block mb-1">🔥</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Best</span>
             </a>
-            <a href="#collections" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
+            <a href="#collections" class="bg-brand text-white p-5 rounded-[2.2rem] shadow-lg shadow-orange-500/20 hover:scale-105 transition-all">
                 <span class="text-2xl block mb-1">👜</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Items</span>
             </a>
-            <a href="#footer-info" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
+            <a href="#footer-info" class="bg-brand text-white p-5 rounded-[2.2rem] shadow-lg shadow-orange-500/20 hover:scale-105 transition-all">
                 <span class="text-2xl block mb-1">📍</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Info</span>
             </a>
         </div>
     </header>
 
-    <section id="recent" class="py-12 pl-6">
-        <h2 class="font-serif italic text-3xl mb-10 ml-2">Best Seller</h2>
+    <section id="recent" class="py-10 pl-6">
+        <h2 class="font-serif italic text-2xl mb-8 ml-2 border-l-4 border-brand pl-3">Best Seller</h2>
         <div id="recent-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8">
             </div>
     </section>
 
-    <section id="collections" class="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/40 rounded-t-[4rem]">
+    <section id="collections" class="py-20 px-6 bg-zinc-50 dark:bg-zinc-900/40 rounded-t-[4rem]">
         <h2 class="font-serif italic text-3xl mb-12 text-center">Catalog</h2>
         <div id="collection-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 max-w-6xl mx-auto">
             </div>
@@ -78,37 +86,37 @@
     <section class="py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950">
         <h2 class="font-serif italic text-2xl mb-12 text-center opacity-40 italic">Customer Voice</h2>
         <div class="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 max-w-5xl mx-auto">
-            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm border-b-4 border-brand">
                 <p class="text-sm italic leading-relaxed opacity-80">"Leather-nya beneran wangi kulit mahal. Jahitan super presisi!"</p>
-                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Andrean Syah</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-brand">— Andrean Syah</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm border-b-4 border-brand">
                 <p class="text-sm italic leading-relaxed opacity-80">"Card holder tertipis yang pernah saya punya. Mantap IQL!"</p>
-                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Melisa Putri</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-brand">— Melisa Putri</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm border-b-4 border-brand">
                 <p class="text-sm italic leading-relaxed opacity-80">"Packaging gila sih, berasa beli barang jutaan rupiah."</p>
-                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Kevin Hamdan</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-brand">— Kevin Hamdan</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm border-b-4 border-brand">
                 <p class="text-sm italic leading-relaxed opacity-80">"Respon Saka sangat membantu pilih kado buat suami."</p>
-                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Riska Amalia</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-brand">— Riska Amalia</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm border-b-4 border-brand">
                 <p class="text-sm italic leading-relaxed opacity-80">"Warna tan-nya cakep banget pas udah dipake lama (patina)."</p>
-                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Taufik Rahman</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-brand">— Taufik Rahman</p>
             </div>
         </div>
     </section>
 
-    <footer id="footer-info" class="bg-zinc-100 dark:bg-zinc-900 px-8 pt-24 pb-44 rounded-t-[4rem]">
+    <footer id="footer-info" class="bg-zinc-100 dark:bg-zinc-900 px-8 pt-24 pb-48 rounded-t-[4rem]">
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
             <div class="text-center md:text-left">
                 <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-30 italic">Location</h4>
                 <p class="text-sm leading-8 font-medium">IQL Studio Kav. 45<br>Area Industri Kulit, Jakarta<br>Indonesia 10220</p>
             </div>
             <div class="text-center md:text-right">
-                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-30 italic">Payment Support</h4>
+                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-30 italic text-brand">Transaction</h4>
                 <div class="flex justify-center md:justify-end gap-8 grayscale opacity-40 transition-all hover:grayscale-0 hover:opacity-100">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="h-6">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo.svg" class="h-5">
@@ -118,25 +126,25 @@
         </div>
     </footer>
 
-    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] max-w-md bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/20 dark:border-zinc-800 rounded-[2.8rem] py-5 px-10 flex justify-between items-center shadow-2xl z-[60]">
+    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[88%] max-w-md bg-brand text-white rounded-[2.8rem] py-5 px-10 flex justify-between items-center shadow-2xl shadow-orange-500/30 z-[60]">
         <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center gap-1 group active:scale-90 transition-all">
             <span class="text-2xl">🏠</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Home</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-80 text-white">Home</span>
         </button>
         <button onclick="document.getElementById('collections').scrollIntoView()" class="flex flex-col items-center gap-1 group active:scale-90 transition-all">
             <span class="text-2xl">🛍️</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Shop</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-80 text-white">Shop</span>
         </button>
         <button class="relative flex flex-col items-center gap-1 group active:scale-90 transition-all">
             <span class="text-2xl">❤️</span>
-            <span id="wish-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Wish</span>
+            <span id="wish-badge" class="absolute -top-1 -right-1 bg-white text-brand text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-80 text-white">Wish</span>
         </button>
     </nav>
 
     <div id="pop" class="fixed inset-0 z-[100] flex items-end justify-center hidden p-4">
-        <div onclick="closePop()" class="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity"></div>
-        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3.5rem] p-10 shadow-2xl transform translate-y-0 transition-all">
+        <div onclick="closePop()" class="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3.5rem] p-10 shadow-2xl">
             <img id="pop-img" src="" class="w-full aspect-square object-cover rounded-[2.8rem] mb-8 shadow-xl border-4 border-white dark:border-zinc-800">
             <h2 id="pop-t" class="text-3xl font-extrabold mb-2 tracking-tight"></h2>
             <p id="pop-p" class="text-xl opacity-40 mb-10 font-bold"></p>
@@ -148,25 +156,25 @@
     </div>
 
     <script>
-        // DATA 12 PRODUK DENGAN LINK SHOPEE (Silakan ganti URL # dengan link asli kamu)
+        // DATA 12 PRODUK DENGAN LINK SHOPEE
         const products = [
-            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/hera-backpack-iql" },
-            { name: "Card Holder V1", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/card-holder-v1-iql" },
-            { name: "Urban Messenger", price: "425.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/urban-messenger-iql" },
-            { name: "Leather Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/wallet-premium-iql" },
-            { name: "Sling Mini Pro", price: "275.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/sling-mini-iql" },
-            { name: "Travel Case", price: "150.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/travel-case-iql" },
-            { name: "Executive Briefcase", price: "850.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/briefcase-pro-iql" },
-            { name: "Key Organizer", price: "65.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/key-org-iql" },
-            { name: "Clutch Classic", price: "350.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/clutch-iql" },
-            { name: "Passport Cover", price: "120.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/passport-iql" },
-            { name: "Laptop Sleeve 14", price: "220.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/laptop-sleeve-iql" },
-            { name: "Tote Bag Zen", price: "380.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/tote-bag-iql" }
+            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/iql-hera" },
+            { name: "Card Holder V1", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/iql-card-v1" },
+            { name: "Urban Messenger", price: "425.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/iql-messenger" },
+            { name: "Leather Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/iql-wallet" },
+            { name: "Sling Mini Pro", price: "275.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/iql-sling" },
+            { name: "Travel Case", price: "150.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/iql-travel" },
+            { name: "Executive Briefcase", price: "850.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/iql-briefcase" },
+            { name: "Key Organizer", price: "65.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/iql-key" },
+            { name: "Clutch Classic", price: "350.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/iql-clutch" },
+            { name: "Passport Cover", price: "120.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/iql-passport" },
+            { name: "Laptop Sleeve 14", price: "220.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/iql-laptop" },
+            { name: "Tote Bag Zen", price: "380.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/iql-tote" }
         ];
 
         function initApp() {
-            render('recent-container', products.slice(0, 4)); // Best Seller (4 Produk)
-            render('collection-grid', products); // Semua 12 Produk
+            render('recent-container', products.slice(0, 4)); 
+            render('collection-grid', products); 
             startSlider();
         }
 
@@ -180,8 +188,8 @@
                         </button>
                         <img src="${p.img}" class="aspect-[4/5] object-cover rounded-[2.3rem] group-hover:scale-110 smooth-transition">
                     </div>
-                    <h4 class="text-[11px] font-black uppercase px-4 tracking-tight">${p.name}</h4>
-                    <p class="text-[10px] opacity-40 px-4 font-bold tracking-widest uppercase">Rp ${p.price}</p>
+                    <h4 class="text-[11px] font-black uppercase px-4 tracking-tight text-brand">${p.name}</h4>
+                    <p class="text-[10px] opacity-40 px-4 font-bold tracking-widest uppercase italic">Rp ${p.price}</p>
                 </div>
             `).join('');
         }
@@ -197,23 +205,17 @@
             setTimeout(startSlider, 4500); 
         }
 
-        // POPUP & SHOPEE LINK INTEGRATION
+        // POPUP LOGIC
         function openPop(n, p, i, link) {
             document.getElementById('pop-t').innerText = n;
             document.getElementById('pop-p').innerText = 'Rp ' + p;
             document.getElementById('pop-img').src = i;
-            
-            // Injeksi Link Shopee ke Tombol
-            const btn = document.getElementById('shopee-btn');
-            if(btn) {
-                btn.href = link;
-            }
-
+            document.getElementById('shopee-btn').href = link;
             document.getElementById('pop').classList.remove('hidden');
         }
         function closePop() { document.getElementById('pop').classList.add('hidden'); }
 
-        // WISHLIST
+        // WISHLIST LOGIC
         let wishCount = 0;
         function toggleWish(btn) {
             const icon = btn.querySelector('.heart-icon');
@@ -230,4 +232,4 @@
         window.onload = initApp;
     </script>
 </body>
-            </html>
+    </html>
