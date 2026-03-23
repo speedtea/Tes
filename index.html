@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saka - IQL Official</title>
+    <title>Saka - IQL Official Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
+        tailwind.config = { darkMode: 'class' }
     </script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
@@ -19,7 +17,7 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .text-red-500 { color: #ef4444 !important; }
         .fade { animation: fadeAnim 1.5s; }
-        @keyframes fadeAnim { from {opacity: .4} to {opacity: 1} }
+        @keyframes fadeAnim { from {opacity: .6} to {opacity: 1} }
     </style>
 </head>
 <body class="bg-[#fcfcfc] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-500">
@@ -30,28 +28,35 @@
 
     <section class="relative h-[65vh] md:h-[85vh] w-full overflow-hidden bg-zinc-200 dark:bg-zinc-900">
         <div id="hero-slider" class="h-full w-full">
-            <div class="mySlides h-full w-full hidden fade"><img src="img/banner1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200'"></div>
-            <div class="mySlides h-full w-full hidden fade"><img src="img/banner2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200'"></div>
-        </div>
-        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">IQL Premium</h2>
+            <div class="mySlides h-full w-full hidden fade">
+                <img src="img/banner1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200'">
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">IQL Premium</h2>
+                </div>
+            </div>
+            <div class="mySlides h-full w-full hidden fade">
+                <img src="img/banner2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200'">
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">Handcrafted Leather</h2>
+                </div>
+            </div>
         </div>
     </section>
 
     <header class="py-16 px-6 text-center">
-        <h1 class="text-3xl font-extrabold tracking-tighter uppercase mb-2">Saka</h1>
-        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12">Fine Leather Goods Selection</p>
+        <h1 class="text-3xl font-extrabold tracking-tighter uppercase mb-2 italic">Saka</h1>
+        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12">Quality That Speaks For Itself</p>
         
         <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto">
-            <a href="#recent" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+            <a href="#recent" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
                 <span class="text-2xl block mb-1">🔥</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Best</span>
             </a>
-            <a href="#collections" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+            <a href="#collections" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
                 <span class="text-2xl block mb-1">👜</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Items</span>
             </a>
-            <a href="#footer-info" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+            <a href="#footer-info" class="bg-white dark:bg-zinc-900 p-5 rounded-[2.2rem] shadow-sm hover:shadow-xl transition-all border border-zinc-100 dark:border-zinc-800">
                 <span class="text-2xl block mb-1">📍</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Info</span>
             </a>
@@ -59,161 +64,170 @@
     </header>
 
     <section id="recent" class="py-12 pl-6">
-        <h2 class="font-serif italic text-3xl mb-10">Best Seller</h2>
+        <h2 class="font-serif italic text-3xl mb-10 ml-2">Best Seller</h2>
         <div id="recent-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8">
             </div>
     </section>
 
-    <section id="collections" class="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30 rounded-t-[4rem]">
+    <section id="collections" class="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/40 rounded-t-[4rem]">
         <h2 class="font-serif italic text-3xl mb-12 text-center">Catalog</h2>
-        <div id="collection-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl mx-auto">
+        <div id="collection-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 max-w-6xl mx-auto">
             </div>
     </section>
 
-    <section class="py-20 px-6 overflow-hidden bg-white dark:bg-zinc-950">
-        <h2 class="font-serif italic text-2xl mb-12 text-center opacity-50">Review</h2>
-        <div class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 max-w-4xl mx-auto">
-            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
-                <p class="text-sm italic leading-relaxed">"Gak nyangka kualitasnya sebagus ini. Leather-nya beneran premium."</p>
-                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Andrean S.</p>
+    <section class="py-24 px-6 overflow-hidden bg-white dark:bg-zinc-950">
+        <h2 class="font-serif italic text-2xl mb-12 text-center opacity-40 italic">Customer Voice</h2>
+        <div class="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 max-w-5xl mx-auto">
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+                <p class="text-sm italic leading-relaxed opacity-80">"Leather-nya beneran wangi kulit mahal. Jahitan super presisi!"</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Andrean Syah</p>
             </div>
-            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
-                <p class="text-sm italic leading-relaxed">"Sangat puas! Card holdernya presisi banget jahitannya."</p>
-                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Melisa Putri</p>
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+                <p class="text-sm italic leading-relaxed opacity-80">"Card holder tertipis yang pernah saya punya. Mantap IQL!"</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Melisa Putri</p>
             </div>
-            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
-                <p class="text-sm italic leading-relaxed">"Respon admin cepet, barang nyampe cuma sehari."</p>
-                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Kevin H.</p>
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+                <p class="text-sm italic leading-relaxed opacity-80">"Packaging gila sih, berasa beli barang jutaan rupiah."</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Kevin Hamdan</p>
             </div>
-            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
-                <p class="text-sm italic leading-relaxed">"Modelnya timeless, masuk ke semua outfit saya."</p>
-                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Riska Amalia</p>
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+                <p class="text-sm italic leading-relaxed opacity-80">"Respon Saka sangat membantu pilih kado buat suami."</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Riska Amalia</p>
             </div>
-            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
-                <p class="text-sm italic leading-relaxed">"Packaging-nya juara, bener-bener berasa unboxing barang branded."</p>
-                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Taufik R.</p>
+            <div class="min-w-[85%] md:min-w-[380px] bg-zinc-50 dark:bg-zinc-900 p-10 rounded-[3rem] snap-center shadow-sm">
+                <p class="text-sm italic leading-relaxed opacity-80">"Warna tan-nya cakep banget pas udah dipake lama (patina)."</p>
+                <p class="mt-8 font-bold text-[10px] uppercase tracking-[0.2em] text-zinc-400">— Taufik Rahman</p>
             </div>
         </div>
     </section>
 
-    <footer id="footer-info" class="bg-zinc-100 dark:bg-zinc-900 px-8 pt-20 pb-40 rounded-t-[4rem]">
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+    <footer id="footer-info" class="bg-zinc-100 dark:bg-zinc-900 px-8 pt-24 pb-44 rounded-t-[4rem]">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
             <div class="text-center md:text-left">
-                <h4 class="text-[10px] font-extrabold uppercase tracking-widest mb-6 opacity-30">Our Studio</h4>
-                <p class="text-sm leading-7">Graha IQL Lantai 2, Kav. 12-14 <br>Jl. Sudirman, Jakarta Pusat <br>Indonesia 10220</p>
+                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-30 italic">Location</h4>
+                <p class="text-sm leading-8 font-medium">IQL Studio Kav. 45<br>Area Industri Kulit, Jakarta<br>Indonesia 10220</p>
             </div>
             <div class="text-center md:text-right">
-                <h4 class="text-[10px] font-extrabold uppercase tracking-widest mb-6 opacity-30">Transaction</h4>
-                <div class="flex justify-center md:justify-end gap-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all">
+                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-8 opacity-30 italic">Payment Support</h4>
+                <div class="flex justify-center md:justify-end gap-8 grayscale opacity-40 transition-all hover:grayscale-0 hover:opacity-100">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="h-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo.svg" class="h-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo.svg" class="h-5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-6">
                 </div>
             </div>
         </div>
     </footer>
 
-    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] max-w-md bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-zinc-200/50 dark:border-zinc-800 rounded-[2.5rem] py-5 px-10 flex justify-between items-center shadow-2xl z-50">
-        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center gap-1">
-            <span class="text-xl">🏠</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Home</span>
+    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] max-w-md bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/20 dark:border-zinc-800 rounded-[2.8rem] py-5 px-10 flex justify-between items-center shadow-2xl z-[60]">
+        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center gap-1 group active:scale-90 transition-all">
+            <span class="text-2xl">🏠</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Home</span>
         </button>
-        <button onclick="document.getElementById('collections').scrollIntoView()" class="flex flex-col items-center gap-1">
-            <span class="text-xl">🛍️</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Shop</span>
+        <button onclick="document.getElementById('collections').scrollIntoView()" class="flex flex-col items-center gap-1 group active:scale-90 transition-all">
+            <span class="text-2xl">🛍️</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Shop</span>
         </button>
-        <button class="relative flex flex-col items-center gap-1">
-            <span class="text-xl">❤️</span>
-            <span id="wish-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Wish</span>
+        <button class="relative flex flex-col items-center gap-1 group active:scale-90 transition-all">
+            <span class="text-2xl">❤️</span>
+            <span id="wish-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-40">Wish</span>
         </button>
     </nav>
 
     <div id="pop" class="fixed inset-0 z-[100] flex items-end justify-center hidden p-4">
-        <div onclick="closePop()" class="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
-        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3rem] p-8 shadow-2xl">
-            <img id="pop-img" src="" class="w-full aspect-square object-cover rounded-[2.5rem] mb-6 shadow-md">
-            <h2 id="pop-t" class="text-2xl font-bold mb-1"></h2>
-            <p id="pop-p" class="text-lg opacity-40 mb-8 font-medium"></p>
+        <div onclick="closePop()" class="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3.5rem] p-10 shadow-2xl transform translate-y-0 transition-all">
+            <img id="pop-img" src="" class="w-full aspect-square object-cover rounded-[2.8rem] mb-8 shadow-xl border-4 border-white dark:border-zinc-800">
+            <h2 id="pop-t" class="text-3xl font-extrabold mb-2 tracking-tight"></h2>
+            <p id="pop-p" class="text-xl opacity-40 mb-10 font-bold"></p>
             <div class="grid grid-cols-2 gap-4">
-                <a id="shopee-link" href="#" target="_blank" class="bg-[#ee4d2d] text-white py-4 rounded-2xl font-bold text-center text-sm active:scale-95 transition-all">Shopee</a>
-                <button onclick="closePop()" class="bg-zinc-100 dark:bg-zinc-800 py-4 rounded-2xl font-bold text-sm active:scale-95 transition-all">Close</button>
+                <a id="shopee-btn" href="#" target="_blank" class="bg-[#ee4d2d] text-white py-5 rounded-[1.8rem] font-bold text-center text-sm shadow-xl shadow-[#ee4d2d]/30 active:scale-95 transition-all">Beli di Shopee</a>
+                <button onclick="closePop()" class="bg-zinc-100 dark:bg-zinc-800 py-5 rounded-[1.8rem] font-bold text-sm active:scale-95 transition-all">Kembali</button>
             </div>
         </div>
     </div>
 
     <script>
-        // DATA 12 PRODUK (Link Shopee disatukan di sini)
+        // DATA 12 PRODUK DENGAN LINK SHOPEE (Silakan ganti URL # dengan link asli kamu)
         const products = [
-            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" },
-            { name: "Card Holder V1", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
-            { name: "Urban Messenger", price: "425.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
-            { name: "Classic Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
-            { name: "Sling Bag Mini", price: "275.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
-            { name: "Travel Pouch", price: "150.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" },
-            { name: "Briefcase Pro", price: "850.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500", shopee: "#" },
-            { name: "Key Organizer", price: "65.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
-            { name: "Clutch Bag", price: "350.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
-            { name: "Passport Cover", price: "120.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
-            { name: "Laptop Sleeve", price: "220.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500", shopee: "#" },
-            { name: "Tote Bag Zen", price: "380.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" }
+            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/hera-backpack-iql" },
+            { name: "Card Holder V1", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/card-holder-v1-iql" },
+            { name: "Urban Messenger", price: "425.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/urban-messenger-iql" },
+            { name: "Leather Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/wallet-premium-iql" },
+            { name: "Sling Mini Pro", price: "275.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/sling-mini-iql" },
+            { name: "Travel Case", price: "150.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/travel-case-iql" },
+            { name: "Executive Briefcase", price: "850.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/briefcase-pro-iql" },
+            { name: "Key Organizer", price: "65.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/key-org-iql" },
+            { name: "Clutch Classic", price: "350.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600", shopee: "https://shopee.co.id/clutch-iql" },
+            { name: "Passport Cover", price: "120.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600", shopee: "https://shopee.co.id/passport-iql" },
+            { name: "Laptop Sleeve 14", price: "220.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600", shopee: "https://shopee.co.id/laptop-sleeve-iql" },
+            { name: "Tote Bag Zen", price: "380.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600", shopee: "https://shopee.co.id/tote-bag-iql" }
         ];
 
-        function init() {
-            render('recent-container', products.slice(0, 4)); // Ambil 4 saja untuk Recent
-            render('collection-grid', products); // Tampilkan semua 12 di Catalog
-            showSlides();
+        function initApp() {
+            render('recent-container', products.slice(0, 4)); // Best Seller (4 Produk)
+            render('collection-grid', products); // Semua 12 Produk
+            startSlider();
         }
 
         function render(id, data) {
             const container = document.getElementById(id);
             container.innerHTML = data.map(p => `
-                <div onclick="openPop('${p.name}', '${p.price}', '${p.img}', '${p.shopee}')" class="group relative cursor-pointer ${id === 'recent-container' ? 'min-w-[240px] snap-start' : ''}">
-                    <div class="relative overflow-hidden rounded-[2.5rem] mb-4 bg-white dark:bg-zinc-800 p-2 shadow-sm border border-zinc-100 dark:border-zinc-800 transition-all hover:shadow-lg">
-                        <button onclick="event.stopPropagation(); toggleWish(this)" class="absolute top-3 right-3 z-20 bg-white/90 dark:bg-zinc-900/90 p-2 rounded-full shadow-sm active:scale-125 transition-all">
+                <div onclick="openPop('${p.name}', '${p.price}', '${p.img}', '${p.shopee}')" class="group relative cursor-pointer ${id === 'recent-container' ? 'min-w-[260px] snap-start' : ''}">
+                    <div class="relative overflow-hidden rounded-[2.8rem] mb-5 bg-white dark:bg-zinc-900 p-2 shadow-sm border border-zinc-100 dark:border-zinc-800 transition-all hover:shadow-2xl">
+                        <button onclick="event.stopPropagation(); toggleWish(this)" class="absolute top-4 right-4 z-20 bg-white/90 dark:bg-zinc-950/90 p-2.5 rounded-full shadow-sm active:scale-125 transition-all">
                             <span class="heart-icon text-zinc-300">❤️</span>
                         </button>
-                        <img src="${p.img}" class="aspect-[4/5] object-cover rounded-[2rem] group-hover:scale-105 smooth-transition">
+                        <img src="${p.img}" class="aspect-[4/5] object-cover rounded-[2.3rem] group-hover:scale-110 smooth-transition">
                     </div>
-                    <h4 class="text-[10px] font-extrabold uppercase px-3 tracking-tighter">${p.name}</h4>
-                    <p class="text-[10px] opacity-40 px-3 font-medium">Rp ${p.price}</p>
+                    <h4 class="text-[11px] font-black uppercase px-4 tracking-tight">${p.name}</h4>
+                    <p class="text-[10px] opacity-40 px-4 font-bold tracking-widest uppercase">Rp ${p.price}</p>
                 </div>
             `).join('');
         }
 
-        let slideIndex = 0;
-        function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
+        // HERO SLIDER
+        let slideIdx = 0;
+        function startSlider() {
+            const slides = document.getElementsByClassName("mySlides");
             for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-            slideIndex++;
-            if (slideIndex > slides.length) slideIndex = 1;
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 4000); 
+            slideIdx++;
+            if (slideIdx > slides.length) slideIdx = 1;
+            slides[slideIdx-1].style.display = "block";
+            setTimeout(startSlider, 4500); 
         }
 
-        function openPop(n, p, i, l) {
+        // POPUP & SHOPEE LINK INTEGRATION
+        function openPop(n, p, i, link) {
             document.getElementById('pop-t').innerText = n;
             document.getElementById('pop-p').innerText = 'Rp ' + p;
             document.getElementById('pop-img').src = i;
-            document.getElementById('shopee-link').href = l;
+            
+            // Injeksi Link Shopee ke Tombol
+            const btn = document.getElementById('shopee-btn');
+            if(btn) {
+                btn.href = link;
+            }
+
             document.getElementById('pop').classList.remove('hidden');
         }
         function closePop() { document.getElementById('pop').classList.add('hidden'); }
 
-        let wishes = 0;
+        // WISHLIST
+        let wishCount = 0;
         function toggleWish(btn) {
             const icon = btn.querySelector('.heart-icon');
             const badge = document.getElementById('wish-badge');
             if(!icon.classList.contains('text-red-500')) {
-                icon.classList.add('text-red-500'); wishes++;
+                icon.classList.add('text-red-500'); wishCount++;
             } else {
-                icon.classList.remove('text-red-500'); wishes--;
+                icon.classList.remove('text-red-500'); wishCount--;
             }
-            badge.innerText = wishes;
-            wishes > 0 ? badge.classList.remove('hidden') : badge.classList.add('hidden');
+            badge.innerText = wishCount;
+            wishCount > 0 ? badge.classList.remove('hidden') : badge.classList.add('hidden');
         }
 
-        window.onload = init;
+        window.onload = initApp;
     </script>
 </body>
-</html>
+            </html>
