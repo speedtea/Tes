@@ -3,176 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saka - IQL Catalog</title>
+    <title>Saka - IQL Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .smooth-transition { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .text-red-500 { color: #ef4444 !important; }
-        /* Animasi Fade untuk Banner */
         .fade { animation: fadeAnim 1.5s; }
         @keyframes fadeAnim { from {opacity: .4} to {opacity: 1} }
     </style>
 </head>
-<body class="bg-[#fcfcfc] dark:bg-black text-zinc-900 dark:text-white transition-colors duration-500">
+<body class="bg-[#fcfcfc] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-500">
 
-    <section class="relative h-[60vh] md:h-[80vh] w-full overflow-hidden bg-zinc-200">
+    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed top-6 right-6 z-[70] bg-white/80 dark:bg-zinc-800/80 p-3 rounded-full shadow-xl backdrop-blur-md active:scale-90 transition-all">
+        <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
+    </button>
+
+    <section class="relative h-[65vh] md:h-[85vh] w-full overflow-hidden bg-zinc-200 dark:bg-zinc-900">
         <div id="hero-slider" class="h-full w-full">
-            <div class="mySlides h-full w-full hidden fade">
-                <img src="img/banner1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200'">
-            </div>
-            <div class="mySlides h-full w-full hidden fade">
-                <img src="img/banner2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200'">
-            </div>
+            <div class="mySlides h-full w-full hidden fade"><img src="img/banner1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200'"></div>
+            <div class="mySlides h-full w-full hidden fade"><img src="img/banner2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200'"></div>
         </div>
         <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <h2 class="text-white text-4xl md:text-6xl font-serif italic tracking-tight">IQL Collection</h2>
+            <h2 class="text-white text-4xl md:text-7xl font-serif italic tracking-tighter">IQL Premium</h2>
         </div>
     </section>
 
-    <header class="py-12 px-6 text-center">
-        <h1 class="text-2xl font-extrabold tracking-tighter uppercase mb-2">Saka</h1>
-        <p class="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-10 text-zinc-500">High Quality Leather Goods</p>
+    <header class="py-16 px-6 text-center">
+        <h1 class="text-3xl font-extrabold tracking-tighter uppercase mb-2">Saka</h1>
+        <p class="text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12">Fine Leather Goods Selection</p>
         
         <div class="grid grid-cols-3 gap-3 max-w-sm mx-auto">
-            <a href="#recent" class="bg-white dark:bg-zinc-900 p-4 rounded-3xl shadow-sm hover:shadow-md transition-all">
-                <span class="text-xl block mb-1">🔥</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Recent</span>
+            <a href="#recent" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+                <span class="text-2xl block mb-1">🔥</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Best</span>
             </a>
-            <a href="#collections" class="bg-white dark:bg-zinc-900 p-4 rounded-3xl shadow-sm hover:shadow-md transition-all">
-                <span class="text-xl block mb-1">👜</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Catalog</span>
+            <a href="#collections" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+                <span class="text-2xl block mb-1">👜</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Items</span>
             </a>
-            <a href="#footer-info" class="bg-white dark:bg-zinc-900 p-4 rounded-3xl shadow-sm hover:shadow-md transition-all">
-                <span class="text-xl block mb-1">📍</span>
+            <a href="#footer-info" class="bg-white dark:bg-zinc-900 p-5 rounded-[2rem] shadow-sm hover:shadow-xl transition-all">
+                <span class="text-2xl block mb-1">📍</span>
                 <span class="text-[9px] font-bold uppercase tracking-widest">Info</span>
             </a>
         </div>
     </header>
 
-    <section id="recent" class="py-10 pl-6">
-        <h2 class="font-serif italic text-3xl mb-8">Recent Release</h2>
-        <div id="recent-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6">
+    <section id="recent" class="py-12 pl-6">
+        <h2 class="font-serif italic text-3xl mb-10">Best Seller</h2>
+        <div id="recent-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8">
             </div>
     </section>
 
-    <section id="collections" class="py-20 px-6 bg-zinc-50 dark:bg-zinc-950 rounded-t-[3rem]">
-        <h2 class="font-serif italic text-3xl mb-12 text-center">Our Collection</h2>
-        <div id="collection-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+    <section id="collections" class="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/30 rounded-t-[4rem]">
+        <h2 class="font-serif italic text-3xl mb-12 text-center">Catalog</h2>
+        <div id="collection-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl mx-auto">
             </div>
     </section>
 
-    <section class="py-20 px-6 overflow-hidden">
-        <h2 class="font-serif italic text-2xl mb-10 text-center text-zinc-400">What They Say</h2>
-        <div class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4">
-            <div class="min-w-[85%] md:min-w-[300px] bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-sm snap-center border border-zinc-100 dark:border-zinc-800">
-                <p class="text-sm italic opacity-70">"Kualitas kulitnya luar biasa. Pengiriman sangat cepat!"</p>
-                <div class="mt-4 font-bold text-[10px] uppercase tracking-widest">— Rizky A.</div>
+    <section class="py-20 px-6 overflow-hidden bg-white dark:bg-zinc-950">
+        <h2 class="font-serif italic text-2xl mb-12 text-center opacity-50">Review</h2>
+        <div class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-6 max-w-4xl mx-auto">
+            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
+                <p class="text-sm italic leading-relaxed">"Gak nyangka kualitasnya sebagus ini. Leather-nya beneran premium."</p>
+                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Andrean S.</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[300px] bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-sm snap-center">
-                <p class="text-sm italic opacity-70">"Packaging premium, cocok buat kado spesial."</p>
-                <div class="mt-4 font-bold text-[10px] uppercase tracking-widest">— Linda M.</div>
+            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
+                <p class="text-sm italic leading-relaxed">"Sangat puas! Card holdernya presisi banget jahitannya."</p>
+                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Melisa Putri</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[300px] bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-sm snap-center">
-                <p class="text-sm italic opacity-70">"Modelnya elegan dan minimalis. Suka banget!"</p>
-                <div class="mt-4 font-bold text-[10px] uppercase tracking-widest">— Budi S.</div>
+            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
+                <p class="text-sm italic leading-relaxed">"Respon admin cepet, barang nyampe cuma sehari."</p>
+                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Kevin H.</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[300px] bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-sm snap-center border">
-                <p class="text-sm italic opacity-70">"Sesuai ekspektasi, admin sangat responsif."</p>
-                <div class="mt-4 font-bold text-[10px] uppercase tracking-widest">— Sarah W.</div>
+            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
+                <p class="text-sm italic leading-relaxed">"Modelnya timeless, masuk ke semua outfit saya."</p>
+                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Riska Amalia</p>
             </div>
-            <div class="min-w-[85%] md:min-w-[300px] bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] shadow-sm snap-center">
-                <p class="text-sm italic opacity-70">"Jahitan rapi dan kulitnya berbau khas mewah."</p>
-                <div class="mt-4 font-bold text-[10px] uppercase tracking-widest">— Dedi K.</div>
+            <div class="min-w-[80%] md:min-w-[350px] bg-zinc-50 dark:bg-zinc-900 p-8 rounded-[2.5rem] snap-center">
+                <p class="text-sm italic leading-relaxed">"Packaging-nya juara, bener-bener berasa unboxing barang branded."</p>
+                <p class="mt-6 font-bold text-[10px] uppercase tracking-widest text-zinc-400">— Taufik R.</p>
             </div>
         </div>
     </section>
 
-    <section id="recomen-ig" class="py-10">
-        <div class="elfsight-app-YOUR-ID-HERE" data-elfsight-app-lazy></div>
-    </section>
-
-    <footer id="footer-info" class="bg-white dark:bg-zinc-900 px-8 py-20 rounded-t-[3rem] shadow-2xl">
-        <div class="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer id="footer-info" class="bg-zinc-100 dark:bg-zinc-900 px-8 pt-20 pb-40 rounded-t-[4rem]">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
             <div class="text-center md:text-left">
-                <h4 class="text-[10px] font-bold uppercase tracking-widest opacity-30 mb-4">Location</h4>
-                <p class="text-sm leading-relaxed">Jl. Contoh Alamat No. 123, <br>Jakarta Selatan, Indonesia</p>
+                <h4 class="text-[10px] font-extrabold uppercase tracking-widest mb-6 opacity-30">Our Studio</h4>
+                <p class="text-sm leading-7">Graha IQL Lantai 2, Kav. 12-14 <br>Jl. Sudirman, Jakarta Pusat <br>Indonesia 10220</p>
             </div>
             <div class="text-center md:text-right">
-                <h4 class="text-[10px] font-bold uppercase tracking-widest opacity-30 mb-4">Payments</h4>
-                <div class="flex justify-center md:justify-end gap-4 opacity-50 grayscale">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="h-5">
+                <h4 class="text-[10px] font-extrabold uppercase tracking-widest mb-6 opacity-30">Transaction</h4>
+                <div class="flex justify-center md:justify-end gap-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="h-6">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo.svg" class="h-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" class="h-5">
                 </div>
             </div>
         </div>
     </footer>
 
-    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-800 rounded-[2.5rem] py-4 px-10 flex justify-between items-center shadow-2xl z-50 transition-all">
-        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center gap-1 group">
-            <span class="text-xl group-active:scale-125 transition-transform">🏠</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter">Home</span>
+    <nav class="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] max-w-md bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-zinc-200/50 dark:border-zinc-800 rounded-[2.5rem] py-5 px-10 flex justify-between items-center shadow-2xl z-50">
+        <button onclick="window.scrollTo(0,0)" class="flex flex-col items-center gap-1">
+            <span class="text-xl">🏠</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Home</span>
         </button>
-        <button onclick="document.getElementById('collections').scrollIntoView()" class="flex flex-col items-center gap-1 group">
-            <span class="text-xl group-active:scale-125 transition-transform">🛍️</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter">Shop</span>
+        <button onclick="document.getElementById('collections').scrollIntoView()" class="flex flex-col items-center gap-1">
+            <span class="text-xl">🛍️</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Shop</span>
         </button>
-        <button class="relative flex flex-col items-center gap-1 group">
-            <span class="text-xl group-active:scale-125 transition-transform">❤️</span>
+        <button class="relative flex flex-col items-center gap-1">
+            <span class="text-xl">❤️</span>
             <span id="wish-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
-            <span class="text-[8px] font-bold uppercase tracking-tighter">Wish</span>
+            <span class="text-[8px] font-bold uppercase tracking-tighter opacity-50">Wish</span>
         </button>
     </nav>
 
     <div id="pop" class="fixed inset-0 z-[100] flex items-end justify-center hidden p-4">
-        <div onclick="closePop()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3rem] p-8 shadow-2xl animate-bounce-short">
-            <img id="pop-img" src="" class="w-full aspect-square object-cover rounded-[2rem] mb-6 shadow-md">
+        <div onclick="closePop()" class="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
+        <div class="relative w-full max-w-lg bg-white dark:bg-zinc-900 rounded-[3rem] p-8 shadow-2xl">
+            <img id="pop-img" src="" class="w-full aspect-square object-cover rounded-[2.5rem] mb-6 shadow-md">
             <h2 id="pop-t" class="text-2xl font-bold mb-1"></h2>
-            <p id="pop-p" class="text-lg opacity-40 mb-8"></p>
+            <p id="pop-p" class="text-lg opacity-40 mb-8 font-medium"></p>
             <div class="grid grid-cols-2 gap-4">
-                <a id="shopee-link" href="#" target="_blank" class="bg-[#ee4d2d] text-white py-4 rounded-2xl font-bold text-center text-sm shadow-lg shadow-[#ee4d2d]/20 active:scale-95 transition-all">Shopee</a>
+                <a id="shopee-link" href="#" target="_blank" class="bg-[#ee4d2d] text-white py-4 rounded-2xl font-bold text-center text-sm active:scale-95 transition-all">Shopee</a>
                 <button onclick="closePop()" class="bg-zinc-100 dark:bg-zinc-800 py-4 rounded-2xl font-bold text-sm active:scale-95 transition-all">Close</button>
             </div>
         </div>
     </div>
 
     <script>
-        // DATA PRODUK (Tetap Seperti Kode Lama Kamu)
+        // DATA 12 PRODUK (Link Shopee disatukan di sini)
         const products = [
-            { name: "Card Holder", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", link: "https://shopee.co.id" },
-            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", link: "https://shopee.co.id" },
-            { name: "Urban Sling", price: "325.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", link: "https://shopee.co.id" },
-            { name: "Leather Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", link: "https://shopee.co.id" }
+            { name: "Hera Backpack", price: "550.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" },
+            { name: "Card Holder V1", price: "95.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
+            { name: "Urban Messenger", price: "425.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
+            { name: "Classic Wallet", price: "185.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
+            { name: "Sling Bag Mini", price: "275.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
+            { name: "Travel Pouch", price: "150.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" },
+            { name: "Briefcase Pro", price: "850.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500", shopee: "#" },
+            { name: "Key Organizer", price: "65.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
+            { name: "Clutch Bag", price: "350.000", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=500", shopee: "#" },
+            { name: "Passport Cover", price: "120.000", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", shopee: "#" },
+            { name: "Laptop Sleeve", price: "220.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500", shopee: "#" },
+            { name: "Tote Bag Zen", price: "380.000", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", shopee: "#" }
         ];
 
         function init() {
-            render('recent-container', products);
-            render('collection-grid', products);
+            render('recent-container', products.slice(0, 4)); // Ambil 4 saja untuk Recent
+            render('collection-grid', products); // Tampilkan semua 12 di Catalog
             showSlides();
         }
 
         function render(id, data) {
             const container = document.getElementById(id);
             container.innerHTML = data.map(p => `
-                <div onclick="openPop('${p.name}', '${p.price}', '${p.img}', '${p.link}')" class="group relative cursor-pointer ${id === 'recent-container' ? 'min-w-[220px] snap-start' : ''}">
-                    <div class="relative overflow-hidden rounded-[2.5rem] mb-3 bg-white dark:bg-zinc-900 p-2 shadow-sm border border-zinc-100 dark:border-zinc-800">
-                        <button onclick="event.stopPropagation(); toggleWish(this)" class="absolute top-3 right-3 z-20 bg-white/90 p-1.5 rounded-full shadow-sm active:scale-125 transition-all">
+                <div onclick="openPop('${p.name}', '${p.price}', '${p.img}', '${p.shopee}')" class="group relative cursor-pointer ${id === 'recent-container' ? 'min-w-[240px] snap-start' : ''}">
+                    <div class="relative overflow-hidden rounded-[2.5rem] mb-4 bg-white dark:bg-zinc-800 p-2 shadow-sm border border-zinc-100 dark:border-zinc-800 transition-all hover:shadow-lg">
+                        <button onclick="event.stopPropagation(); toggleWish(this)" class="absolute top-3 right-3 z-20 bg-white/90 dark:bg-zinc-900/90 p-2 rounded-full shadow-sm active:scale-125 transition-all">
                             <span class="heart-icon text-zinc-300">❤️</span>
                         </button>
                         <img src="${p.img}" class="aspect-[4/5] object-cover rounded-[2rem] group-hover:scale-105 smooth-transition">
                     </div>
-                    <h4 class="text-[11px] font-bold uppercase tracking-tight px-2">${p.name}</h4>
-                    <p class="text-[10px] opacity-40 px-2">Rp ${p.price}</p>
+                    <h4 class="text-[10px] font-extrabold uppercase px-3 tracking-tighter">${p.name}</h4>
+                    <p class="text-[10px] opacity-40 px-3 font-medium">Rp ${p.price}</p>
                 </div>
             `).join('');
         }
 
-        // SLIDER BANNER LOGIC
         let slideIndex = 0;
         function showSlides() {
             let slides = document.getElementsByClassName("mySlides");
@@ -183,7 +191,6 @@
             setTimeout(showSlides, 4000); 
         }
 
-        // POPUP LOGIC
         function openPop(n, p, i, l) {
             document.getElementById('pop-t').innerText = n;
             document.getElementById('pop-p').innerText = 'Rp ' + p;
@@ -193,7 +200,6 @@
         }
         function closePop() { document.getElementById('pop').classList.add('hidden'); }
 
-        // WISHLIST LOGIC
         let wishes = 0;
         function toggleWish(btn) {
             const icon = btn.querySelector('.heart-icon');
@@ -209,6 +215,5 @@
 
         window.onload = init;
     </script>
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
 </body>
-            </html>
+</html>
