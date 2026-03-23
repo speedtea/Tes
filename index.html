@@ -230,6 +230,37 @@
         }
 
         window.onload = initApp;
+        // FUNGSI AUTO SCROLL TESTIMONI
+function startTestiAutoScroll() {
+    const slider = document.querySelector('.snap-x.overflow-x-auto'); // Mengambil container testimoni
+    let isMouseOver = false;
+
+    // Berhenti scroll jika kursor user sedang di atas testimoni (agar nyaman dibaca)
+    slider.addEventListener('mouseenter', () => isMouseOver = true);
+    slider.addEventListener('mouseleave', () => isMouseOver = false);
+
+    setInterval(() => {
+        if (isMouseOver) return; // Jangan geser kalau lagi dibaca
+
+        const cardWidth = slider.querySelector('.snap-center').offsetWidth + 20; // Lebar kartu + gap
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+        // Jika sudah di ujung, balik ke awal. Jika belum, geser ke kanan.
+        if (slider.scrollLeft >= maxScroll - 5) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+    }, 5000); // 5000ms = 5 detik
+}
+
+// Update fungsi initApp kamu agar memanggil fungsi ini
+function initApp() {
+    render('recent-container', products.slice(0, 4)); 
+    render('collection-grid', products); 
+    startSlider(); // Ini slider banner hero
+    startTestiAutoScroll(); // TAMBAHKAN INI: Auto scroll testimoni
+    }
     </script>
 </body>
     </html>
