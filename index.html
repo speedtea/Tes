@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQL Marketplace | Professional Shopping</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; scroll-behavior: smooth; }
+        .bg-amazon-dark { background-color: #131921; }
+        .swiper-pagination-bullet-active { background: #febd69 !important; }
+        .category-card:hover { border-color: #febd69; transform: translateY(-5px); }
+        .product-card:hover { transform: scale(1.03); }
+        /* Animasi muncul produk */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fadeIn 0.4s ease forwards; }
+    </style>
+</head>
+<body>
+
+<header class="bg-amazon-dark text-white p-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold flex items-center gap-2 cursor-pointer" onclick="filterProduct('all')">
+            <span class="text-white">IQL</span><span class="text-[#febd69]">STORE</span>
+        </div>
+        <div class="hidden md:flex flex-1 mx-8">
+            <input type="text" id="searchInput" onkeyup="searchProduct()" placeholder="Cari produk impianmu..." class="w-full p-2 rounded-l-md text-black outline-none">
+            <button class="bg-[#febd69] p-2 rounded-r-md text-black">🔍</button>
+        </div>
+        <div class="flex gap-4 items-center">
+            <span class="text-xs hidden sm:block">Halo, Masuk <br> <b>Akun & Daftar</b></span>
+            <div class="relative cursor-pointer">🛒 <span class="absolute -top-2 -right-2 bg-orange-500 rounded-full px-1 text-[10px]">0</span></div>
+        </div>
+    </div>
+</header>
+
+<section class="container mx-auto p-4 -mt-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div onclick="filterProduct('gadget')" class="category-card bg-white p-4 rounded shadow transition cursor-pointer border-2 border-transparent">
+            <h3 class="font-bold mb-2 text-sm md:text-base">Gadget Terbaru</h3>
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300" class="w-full h-32 object-cover rounded">
+            <span class="text-blue-600 text-xs mt-2 inline-block font-semibold">Lihat Koleksi</span>
+        </div>
+        <div onclick="filterProduct('fashion')" class="category-card bg-white p-4 rounded shadow transition cursor-pointer border-2 border-transparent">
+            <h3 class="font-bold mb-2 text-sm md:text-base">Fashion Style</h3>
+            <img src="https://images.unsplash.com/photo-15162579848b2-801116298573?w=300" class="w-full h-32 object-cover rounded">
+            <span class="text-blue-600 text-xs mt-2 inline-block font-semibold">Lihat Koleksi</span>
+        </div>
+        <div onclick="filterProduct('elektronik')" class="category-card bg-white p-4 rounded shadow transition cursor-pointer border-2 border-transparent">
+            <h3 class="font-bold mb-2 text-sm md:text-base">Elektronik</h3>
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300" class="w-full h-32 object-cover rounded">
+            <span class="text-blue-600 text-xs mt-2 inline-block font-semibold">Lihat Koleksi</span>
+        </div>
+        <div onclick="filterProduct('rumah')" class="category-card bg-white p-4 rounded shadow transition cursor-pointer border-2 border-transparent">
+            <h3 class="font-bold mb-2 text-sm md:text-base">Peralatan Rumah</h3>
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc2f51f92?w=300" class="w-full h-32 object-cover rounded">
+            <span class="text-blue-600 text-xs mt-2 inline-block font-semibold">Lihat Koleksi</span>
+        </div>
+    </div>
+</section>
+
+<section class="container mx-auto p-4">
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl md:text-2xl font-bold border-l-4 border-[#febd69] pl-3" id="categoryTitle">Rekomendasi Untukmu</h2>
+        <button onclick="filterProduct('all')" class="text-sm text-blue-600 font-semibold hover:underline">Tampilkan Semua</button>
+    </div>
+    
+    <div id="productContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        </div>
+</section>
+
+<section class="container mx-auto p-4 my-12">
+    <h2 class="text-center text-xl font-bold mb-8">Ulasan Pelanggan Setia</h2>
+    <div class="swiper mySwiper max-w-2xl mx-auto">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg-white p-8 rounded-2xl shadow-sm text-center italic border border-gray-100">
+                <p class="mb-4">"Barang sampai cepat banget, kualitas IQL emang gak kaleng-kaleng!"</p>
+                <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                <b class="text-gray-800 not-italic">- Budi S.</b>
+            </div>
+            <div class="swiper-slide bg-white p-8 rounded-2xl shadow-sm text-center italic border border-gray-100">
+                <p class="mb-4">"Affiliate terpercaya, harganya sama dengan toko asli di Shopee."</p>
+                <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                <b class="text-gray-800 not-italic">- Ani W.</b>
+            </div>
+            <div class="swiper-slide bg-white p-8 rounded-2xl shadow-sm text-center italic border border-gray-100">
+                <p class="mb-4">"Admin responsif banget di WhatsApp. Membantu pas mau checkout."</p>
+                <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                <b class="text-gray-800 not-italic">- Dedi K.</b>
+            </div>
+            <div class="swiper-slide bg-white p-8 rounded-2xl shadow-sm text-center italic border border-gray-100">
+                <p class="mb-4">"Gak nyesel langganan di sini, vouchernya sering aktif!"</p>
+                <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                <b class="text-gray-800 not-italic">- Siska M.</b>
+            </div>
+            <div class="swiper-slide bg-white p-8 rounded-2xl shadow-sm text-center italic border border-gray-100">
+                <p class="mb-4">"Pengiriman aman, bubble wrap tebal. Recommended seller!"</p>
+                <div class="text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+                <b class="text-gray-800 not-italic">- Rizky A.</b>
+            </div>
+        </div>
+        <div class="swiper-pagination mt-4"></div>
+    </div>
+</section>
+
+<footer class="bg-white border-t pt-12 pb-6 px-4">
+    <div class="container mx-auto text-center">
+        <p class="text-gray-400 mb-6 uppercase tracking-widest text-xs font-bold">Metode Pembayaran Aman</p>
+        <div class="flex flex-wrap justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" width="50">
+            <img src="https://upload.wikimedia.org/wikipedia/id/f/fa/Bank_Mandiri_logo.svg" width="70">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_dana_blue.svg" width="50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_OVO.svg" width="50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Shopee_logo.svg" width="50">
+        </div>
+        <hr class="my-8 border-gray-100">
+        <p class="text-sm font-bold text-gray-700 italic">IQL STORE - Alamat: Jl. Amazon Raya No. 12, Jakarta Selatan</p>
+        <p class="mt-2 text-xs text-gray-400">© 2026 IQL STORE. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // 1. Database Produk (Silakan ganti link/gambar di sini)
+    const products = [
+        { id: 1, category: 'gadget', name: "IQL Smart Watch v5 - Black Edition", price: "850.000", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", link: "https://shope.ee/contoh1" },
+        { id: 2, category: 'gadget', name: "Headphone Pro Bass Wireless", price: "1.200.000", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", link: "https://shope.ee/contoh2" },
+        { id: 3, category: 'elektronik', name: "Kamera Mirrorless 4K Ultra", price: "7.500.000", img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400", link: "https://shope.ee/contoh3" },
+        { id: 4, category: 'fashion', name: "Sepatu Sneaker IQL Runner", price: "450.000", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400", link: "https://shope.ee/contoh4" },
+        { id: 5, category: 'rumah', name: "Tumblr Aesthetic Frosty White", price: "120.000", img: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400", link: "https://shope.ee/contoh5" },
+        { id: 6, category: 'fashion', name: "Tas Ransel Kerja Waterproof", price: "350.000", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", link: "https://shope.ee/contoh6" },
+        { id: 7, category: 'elektronik', name: "Keyboard Mechanical RGB", price: "950.000", img: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400", link: "https://shope.ee/contoh7" },
+        { id: 8, category: 'gadget', name: "IQL Powerbank 20000mAh", price: "299.000", img: "https://images.unsplash.com/photo-1609594345185-30040854a763?w=400", link: "https://shope.ee/contoh8" },
+        { id: 9, category: 'rumah', name: "Lampu Meja Belajar Minimalis", price: "185.000", img: "https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=400", link: "https://shope.ee/contoh9" },
+        { id: 10, category: 'fashion', name: "Jaket Bomber IQL Black", price: "320.000", img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400", link: "https://shope.ee/contoh10" },
+        { id: 11, category: 'elektronik', name: "Mouse Gaming Wireless", price: "450.000", img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400", link: "https://shope.ee/contoh11" },
+        { id: 12, category: 'rumah', name: "Set Alat Masak Granite", price: "1.500.000", img: "https://images.unsplash.com/photo-1584990333910-efdd0616198c?w=400", link: "https://shope.ee/contoh12" }
+    ];
+
+    // 2. Fungsi Menampilkan Produk
+    function renderProducts(data) {
+        const container = document.getElementById('productContainer');
+        container.innerHTML = "";
+        data.forEach(p => {
+            container.innerHTML += `
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition duration-300 cursor-pointer animate-fade" onclick="showPopup('${p.name}', '${p.price}', '${p.img}', '${p.link}')">
+                    <img src="${p.img}" class="w-full h-40 md:h-48 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-xs md:text-sm font-medium line-clamp-2 h-10">${p.name}</h4>
+                        <div class="flex text-yellow-400 text-[10px] my-1">⭐⭐⭐⭐⭐</div>
+                        <p class="font-bold text-red-600 text-sm md:text-base">Rp ${p.price}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // 3. Fungsi Filter Kategori
+    function filterProduct(cat) {
+        const title = document.getElementById('categoryTitle');
+        if (cat === 'all') {
+            title.innerText = "Semua Produk";
+            renderProducts(products);
+        } else {
+            title.innerText = "Koleksi " + cat.charAt(0).toUpperCase() + cat.slice(1);
+            const filtered = products.filter(item => item.category === cat);
+            renderProducts(filtered);
+        }
+        // Scroll ke section produk setelah klik kategori
+        document.getElementById('productContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // 4. Fungsi Pencarian
+    function searchProduct() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = products.filter(item => item.name.toLowerCase().includes(query));
+        renderProducts(filtered);
+    }
+
+    // 5. Modal Detail (SweetAlert2)
+    function showPopup(name, price, img, link) {
+        const waNumber = "628123456789"; // Ganti nomor WA kamu di sini
+        const waLink = `https://wa.me/${waNumber}?text=Halo%20IQL%20Store,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(name)}`;
+        
+        Swal.fire({
+            title: `<span class="text-base md:text-lg font-bold">${name}</span>`,
+            html: `
+                <img src="${img}" class="w-full rounded-xl mb-4 h-56 object-cover shadow-inner">
+                <p class="text-2xl font-bold text-red-600 mb-6 text-center">Rp ${price}</p>
+                <div class="flex flex-col gap-3">
+                    <a href="${link}" target="_blank" class="bg-[#ff4700] text-white py-3 rounded-xl font-bold hover:bg-orange-700 transition flex items-center justify-center gap-2">
+                        Beli di Shopee Affiliate
+                    </a>
+                    <a href="${waLink}" target="_blank" class="bg-[#25D366] text-white py-3 rounded-xl font-bold hover:bg-green-700 transition flex items-center justify-center gap-2">
+                        Hubungi Admin (WA)
+                    </a>
+                </div>
+            `,
+            showConfirmButton: false,
+            showCloseButton: true,
+            width: '380px',
+            customClass: { popup: 'rounded-3xl' }
+        });
+    }
+
+    // Inisialisasi awal
+    window.onload = () => {
+        renderProducts(products);
+        var swiper = new Swiper(".mySwiper", {
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            loop: true
+        });
+    };
+</script>
+
+</body>
+</html>
