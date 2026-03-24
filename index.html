@@ -151,6 +151,32 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+    // 1. DATA PRODUK (Sudah ditambah 4 produk per kategori)
+const products = [
+    // --- KATEGORI GADGET ---
+    { id: 1, category: 'gadget', name: "IQL Smart Watch v5", price: 850000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", link: "#", flash: true },
+    { id: 2, category: 'gadget', name: "Pro Bass Wireless", price: 1200000, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", link: "#", flash: true },
+    { id: 9, category: 'gadget', name: "Tablet Pro 11 Inch", price: 4500000, img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400", link: "#", flash: false },
+    { id: 10, category: 'gadget', name: "Powerbank Fast Charge", price: 350000, img: "https://images.unsplash.com/photo-1609594345185-30040854a763?w=400", link: "#", flash: false },
+
+    // --- KATEGORI FASHION ---
+    { id: 4, category: 'fashion', name: "IQL Sneaker Runner", price: 450000, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400", link: "#", flash: true },
+    { id: 6, category: 'fashion', name: "Backpack Urban Pro", price: 350000, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", link: "#", flash: false },
+    { id: 11, category: 'fashion', name: "Kacamata Hitam UV", price: 150000, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400", link: "#", flash: false },
+    { id: 12, category: 'fashion', name: "Jaket Bomber Exclusive", price: 550000, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400", link: "#", flash: false },
+
+    // --- KATEGORI ELEKTRONIK ---
+    { id: 3, category: 'elektronik', name: "Camera Mirrorless 4K", price: 7500000, img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400", link: "#", flash: false },
+    { id: 8, category: 'elektronik', name: "Gaming Mouse RGB", price: 450000, img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400", link: "#", flash: false },
+    { id: 13, category: 'elektronik', name: "Keyboard Mechanical", price: 850000, img: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400", link: "#", flash: false },
+    { id: 14, category: 'elektronik', name: "Monitor Ultra Wide", price: 3200000, img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400", link: "#", flash: true },
+
+    // --- KATEGORI RUMAH ---
+    { id: 5, category: 'rumah', name: "Tumblr Aesthetic White", price: 120000, img: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400", link: "#", flash: false },
+    { id: 15, category: 'rumah', name: "Lampu Meja Minimalis", price: 250000, img: "https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=400", link: "#", flash: false },
+    { id: 16, category: 'rumah', name: "Air Purifier Smart", price: 1800000, img: "https://images.unsplash.com/photo-1585771724684-252702b6442e?w=400", link: "#", flash: true },
+    { id: 17, category: 'rumah', name: "Set Pisau Dapur Pro", price: 450000, img: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=400", link: "#", flash: false },
+];
     // 1. DATA PRODUK
     const products = [
         { id: 1, category: 'gadget', name: "IQL Smart Watch v5", price: 850000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", link: "#", flash: true },
