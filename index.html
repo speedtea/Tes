@@ -270,5 +270,23 @@ function initApp() {
     startTestiAutoScroll(); // TAMBAHKAN INI: Auto scroll testimoni
     }
     </script>
+    <script>
+    let slideIndex = 0;
+    function runSlider() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        if(slides[slideIndex-1]) {
+            slides[slideIndex-1].style.display = "block";  
+        }
+        setTimeout(runSlider, 5000); // Ganti gambar tiap 5 detik
+    }
+    // Jalankan fungsi saat halaman beres dimuat
+    window.addEventListener('DOMContentLoaded', runSlider);
+    </script>
 </body>
     </html>
