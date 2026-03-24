@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQL STORE | Premium Marketplace</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; scroll-behavior: smooth; }
+        .bg-amazon-dark { background-color: #131921; }
+        .amazon-orange { background-color: #febd69; }
+        .swiper-pagination-bullet-active { background: #febd69 !important; }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-pulse-fast { animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .star-rating { color: #fbbf24; }
+        
+        /* Optimasi Space Kosong HP */
+        @media (max-width: 768px) {
+            .container { padding-left: 10px; padding-right: 10px; }
+            footer { padding-bottom: 80px; } /* Space untuk navigasi bawah jika ada */
+        }
+    </style>
+</head>
+<body class="pb-10 md:pb-0">
+
+<header class="bg-amazon-dark text-white p-4 sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center gap-2">
+        <div class="text-xl md:text-2xl font-bold flex items-center gap-2 cursor-pointer shrink-0" onclick="filterProduct('all')">
+            <span class="bg-[#febd69] text-black px-2 py-0.5 rounded">IQL</span><span class="text-[#febd69] hidden md:inline">STORE</span>
+        </div>
+        <div class="flex-1 max-w-2xl mx-2 md:mx-8">
+            <div class="flex">
+                <input type="text" id="searchInput" onkeyup="searchProduct()" placeholder="Cari..." class="w-full p-2 rounded-l-md text-black outline-none text-sm">
+                <button class="bg-[#febd69] px-3 md:px-6 rounded-r-md text-black font-bold text-sm">🔍</button>
+            </div>
+        </div>
+        <div class="relative cursor-pointer shrink-0" onclick="toggleCart()">
+            <span class="text-2xl md:text-3xl">🛒</span>
+            <span id="cartCount" class="absolute -top-1 -right-2 bg-red-600 text-white text-[10px] font-bold rounded-full px-1.5 py-0.5 border-2 border-amazon-dark">0</span>
+        </div>
+    </div>
+</header>
+
+<section class="container mx-auto p-2 md:p-4 mt-1">
+    <div class="swiper heroSwiper rounded-xl overflow-hidden shadow-lg">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide relative">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200" class="w-full h-[160px] md:h-[400px] object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/60 flex flex-col justify-center p-6 text-white">
+                    <h2 class="text-xl md:text-5xl font-bold">SALE AKHIR TAHUN</h2>
+                    <p class="text-xs md:text-xl text-orange-300">Dapatkan koleksi gadget terbaik!</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200" class="w-full h-[160px] md:h-[400px] object-cover">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<section class="container mx-auto p-2 md:p-4">
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-red-100">
+        <div class="bg-red-600 p-3 flex justify-between items-center text-white">
+            <div class="flex items-center gap-2 md:gap-4">
+                <h2 class="text-sm md:text-xl font-black italic animate-pulse-fast">⚡ FLASH SALE</h2>
+                <div id="countdown" class="flex gap-1 text-black font-bold text-[10px] md:text-sm">
+                    <span id="hours" class="bg-white px-1.5 py-0.5 rounded">00</span>:
+                    <span id="minutes" class="bg-white px-1.5 py-0.5 rounded">00</span>:
+                    <span id="seconds" class="bg-white px-1.5 py-0.5 rounded">00</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-4" id="flashSaleContainer"></div>
+    </div>
+</section>
+
+<section class="container mx-auto px-2 py-4 grid grid-cols-4 gap-2 text-center">
+    <div onclick="filterProduct('gadget')" class="cursor-pointer">
+        <div class="bg-white p-2 md:p-4 rounded-xl shadow-sm border hover:border-orange-400 transition-all">
+            <img src="https://cdn-icons-png.flaticon.com/512/644/644458.png" class="w-8 md:w-12 mx-auto">
+            <p class="text-[10px] md:text-xs font-bold mt-1 text-gray-700">Gadget</p>
+        </div>
+    </div>
+    <div onclick="filterProduct('fashion')" class="cursor-pointer">
+        <div class="bg-white p-2 md:p-4 rounded-xl shadow-sm border hover:border-orange-400 transition-all">
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050239.png" class="w-8 md:w-12 mx-auto">
+            <p class="text-[10px] md:text-xs font-bold mt-1 text-gray-700">Fashion</p>
+        </div>
+    </div>
+    <div onclick="filterProduct('elektronik')" class="cursor-pointer">
+        <div class="bg-white p-2 md:p-4 rounded-xl shadow-sm border hover:border-orange-400 transition-all">
+            <img src="https://cdn-icons-png.flaticon.com/512/3659/3659899.png" class="w-8 md:w-12 mx-auto">
+            <p class="text-[10px] md:text-xs font-bold mt-1 text-gray-700">Elektronik</p>
+        </div>
+    </div>
+    <div onclick="filterProduct('rumah')" class="cursor-pointer">
+        <div class="bg-white p-2 md:p-4 rounded-xl shadow-sm border hover:border-orange-400 transition-all">
+            <img src="https://cdn-icons-png.flaticon.com/512/2667/2667231.png" class="w-8 md:w-12 mx-auto">
+            <p class="text-[10px] md:text-xs font-bold mt-1 text-gray-700">Rumah</p>
+        </div>
+    </div>
+</section>
+
+<section class="container mx-auto p-2 md:p-4">
+    <h2 class="text-lg md:text-xl font-bold mb-4 border-l-4 border-orange-400 pl-3 uppercase" id="categoryTitle">Produk Pilihan</h2>
+    <div id="productContainer" class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-6"></div>
+</section>
+
+<section class="container mx-auto p-4 my-8 md:my-12">
+    <h2 class="text-center text-xl font-bold mb-6 italic">Review Pembeli</h2>
+    <div class="swiper testiSwiper max-w-xl mx-auto">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg-white p-6 rounded-2xl text-center border shadow-sm">
+                <p class="text-sm italic text-gray-600 mb-3">"Barang ori, packing mantap banget!"</p>
+                <div class="star-rating text-xs mb-1">★★★★★</div>
+                <h4 class="font-bold text-orange-500 text-xs">- Andi Pratama</h4>
+            </div>
+            <div class="swiper-slide bg-white p-6 rounded-2xl text-center border shadow-sm">
+                <p class="text-sm italic text-gray-600 mb-3">"Flash sale-nya dapet harga miring, makasih IQL!"</p>
+                <div class="star-rating text-xs mb-1">★★★★★</div>
+                <h4 class="font-bold text-orange-500 text-xs">- Siti Aminah</h4>
+            </div>
+            <div class="swiper-slide bg-white p-6 rounded-2xl text-center border shadow-sm">
+                <p class="text-sm italic text-gray-600 mb-3">"Cepat sampai, CS-nya sangat membantu."</p>
+                <div class="star-rating text-xs mb-1">★★★★★</div>
+                <h4 class="font-bold text-orange-500 text-xs">- Budi Santoso</h4>
+            </div>
+            <div class="swiper-slide bg-white p-6 rounded-2xl text-center border shadow-sm">
+                <p class="text-sm italic text-gray-600 mb-3">"Kualitas bintang 5, harga kaki lima."</p>
+                <div class="star-rating text-xs mb-1">★★★★★</div>
+                <h4 class="font-bold text-orange-500 text-xs">- Rina Wijaya</h4>
+            </div>
+            <div class="swiper-slide bg-white p-6 rounded-2xl text-center border shadow-sm">
+                <p class="text-sm italic text-gray-600 mb-3">"Recomended seller buat yang cari gadget."</p>
+                <div class="star-rating text-xs mb-1">★★★★★</div>
+                <h4 class="font-bold text-orange-500 text-xs">- Kevin Sanjaya</h4>
+            </div>
+        </div>
+        <div class="swiper-pagination !-bottom-1"></div>
+    </div>
+</section>
+
+<footer class="bg-white border-t pt-10 pb-6">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-left">
+            <div class="text-2xl font-bold mb-3">
+                <span class="text-orange-500">IQL</span> STORE
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+                Jl. Amazon Raya No. 12, Sektor 5<br>
+                Kota Digital, Indonesia<br>
+                <strong>Follow Kami:</strong>
+            </p>
+            <div class="flex gap-4 mt-3">
+                <a href="https://tiktok.com/@username" target="_blank" class="hover:opacity-75">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="24" title="TikTok">
+                </a>
+                <a href="https://instagram.com/username" target="_blank" class="hover:opacity-75">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="24" title="Instagram">
+                </a>
+            </div>
+        </div>
+        
+        <div class="text-left">
+            <h4 class="font-bold mb-3 text-sm uppercase">Layanan Pelanggan</h4>
+            <ul class="text-gray-500 text-xs space-y-3">
+                <li><a href="https://wa.me/628123456789?text=Halo%20Bantuan" class="hover:text-orange-500">Bantuan & FAQ (WhatsApp)</a></li>
+                <li><a href="https://www.google.com/search?q=cek+resi" target="_blank" class="hover:text-orange-500 font-bold text-red-600">Lacak Pesanan (Cek Resi)</a></li>
+            </ul>
+        </div>
+
+        <div class="text-left">
+            <h4 class="font-bold mb-3 text-sm uppercase">Metode Pembayaran</h4>
+            <div class="flex flex-wrap gap-3 grayscale hover:grayscale-0 transition-all">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" width="40" title="BCA">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_dana_blue.svg" width="40" title="DANA">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Logo-Ovo.png" width="40" title="OVO">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_Gopay.svg" width="40" title="GOPAY">
+            </div>
+        </div>
+    </div>
+    <div class="mt-10 pt-4 border-t text-center text-gray-400 text-[10px]">
+        © 2026 IQL STORE. Hak Cipta Dilindungi.
+    </div>
+</footer>
+
+<div id="cartDrawer" class="fixed inset-y-0 right-0 w-full md:w-80 bg-white shadow-2xl z-[60] transform translate-x-full transition-transform duration-300 p-6 flex flex-col">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-bold">🛒 Keranjang</h2>
+        <button onclick="toggleCart()" class="text-3xl">&times;</button>
+    </div>
+    <div id="cartItems" class="flex-1 overflow-y-auto space-y-4"></div>
+    <div class="border-t pt-4 mt-4">
+        <div class="flex justify-between font-bold text-lg mb-4">
+            <span>Total:</span>
+            <span id="cartTotal" class="text-orange-600">Rp 0</span>
+        </div>
+        <button onclick="checkoutWA()" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg">Checkout WhatsApp</button>
+    </div>
+</div>
+<div id="cartOverlay" class="fixed inset-0 bg-black/60 z-[55] hidden" onclick="toggleCart()"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+// DATA PRODUK
+const products = [
+    { id: 1, category: 'gadget', name: "IQL Smart Watch v5", price: 850000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400", link: "https://shopee.co.id", flash: true },
+    { id: 2, category: 'gadget', name: "Pro Bass Wireless", price: 1200000, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400", link: "https://shopee.co.id", flash: true },
+    { id: 3, category: 'elektronik', name: "Camera Vlog 4K", price: 7500000, img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400", link: "https://shopee.co.id", flash: false },
+    { id: 4, category: 'fashion', name: "IQL Sneaker Runner", price: 450000, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400", link: "https://shopee.co.id", flash: true },
+    { id: 5, category: 'rumah', name: "Lampu Meja LED", price: 250000, img: "https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=400", link: "https://shopee.co.id", flash: false },
+    { id: 6, category: 'fashion', name: "Jaket Bomber Pro", price: 550000, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400", link: "https://shopee.co.id", flash: false },
+    { id: 7, category: 'gadget', name: "Powerbank 20k mAh", price: 350000, img: "https://images.unsplash.com/photo-1609594345185-30040854a763?w=400", link: "https://shopee.co.id", flash: true },
+    { id: 8, category: 'elektronik', name: "Gaming Mouse RGB", price: 450000, img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400", link: "https://shopee.co.id", flash: true }
+];
+
+let cart = JSON.parse(localStorage.getItem('IQL_CART')) || [];
+
+function renderProducts(data = products) {
+    const container = document.getElementById('productContainer');
+    const flashContainer = document.getElementById('flashSaleContainer');
+    container.innerHTML = "";
+    if(flashContainer) flashContainer.innerHTML = "";
+
+    data.forEach(p => {
+        const cardHtml = `
+            <div class="product-card bg-white rounded-xl overflow-hidden shadow-sm p-2 cursor-pointer border hover:border-orange-400" onclick="showPopup(${p.id})">
+                <img src="${p.img}" class="w-full h-32 md:h-44 object-cover rounded-lg mb-2">
+                <h4 class="text-[11px] md:text-sm font-semibold line-clamp-2 h-8 mb-1">${p.name}</h4>
+                <div class="star-rating text-[10px] mb-1">★★★★★</div>
+                <p class="font-bold text-red-600 text-xs md:text-base">Rp ${p.price.toLocaleString()}</p>
+            </div>`;
+        
+        if(p.flash && flashContainer && data.length > 4) {
+            flashContainer.innerHTML += cardHtml;
+        } else {
+            container.innerHTML += cardHtml;
+        }
+    });
+    updateCartUI();
+}
+
+function filterProduct(cat) {
+    const title = document.getElementById('categoryTitle');
+    title.innerText = cat === 'all' ? "Produk Pilihan" : "Koleksi " + cat;
+    renderProducts(cat === 'all' ? products : products.filter(p => p.category === cat));
+}
+
+function searchProduct() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    renderProducts(products.filter(p => p.name.toLowerCase().includes(q)));
+}
+
+function addToCart(id) {
+    const p = products.find(i => i.id === id);
+    const exists = cart.find(i => i.id === id);
+    if (exists) exists.qty++; else cart.push({ ...p, qty: 1 });
+    saveCart();
+    Swal.fire({ icon: 'success', title: 'Masuk Keranjang', showConfirmButton: false, timer: 800 });
+    updateCartUI();
+}
+
+function updateCartUI() {
+    const list = document.getElementById('cartItems');
+    const totalLabel = document.getElementById('cartTotal');
+    let total = 0, count = 0;
+    list.innerHTML = "";
+    cart.forEach((item, index) => {
+        total += item.price * item.qty;
+        count += item.qty;
+        list.innerHTML += `<div class="flex items-center gap-3 bg-gray-50 p-2 rounded-lg text-xs">
+            <img src="${item.img}" class="w-10 h-10 object-cover rounded">
+            <div class="flex-1 font-bold">${item.name}<br><span class="text-red-500">Rp ${item.price.toLocaleString()} x ${item.qty}</span></div>
+            <button onclick="removeFromCart(${index})" class="text-red-500">🗑️</button>
+        </div>`;
+    });
+    document.getElementById('cartCount').innerText = count;
+    totalLabel.innerText = "Rp " + total.toLocaleString();
+}
+
+function removeFromCart(i) { cart.splice(i, 1); saveCart(); updateCartUI(); }
+function saveCart() { localStorage.setItem('IQL_CART', JSON.stringify(cart)); }
+function toggleCart() { 
+    document.getElementById('cartDrawer').classList.toggle('translate-x-full'); 
+    document.getElementById('cartOverlay').classList.toggle('hidden'); 
+}
+
+function checkoutWA() {
+    if (cart.length === 0) return;
+    let msg = "Order via Web:\n" + cart.map(i => `- ${i.name} (${i.qty}x)`).join("\n");
+    window.open(`https://wa.me/628123456789?text=${encodeURIComponent(msg)}`);
+}
+
+function showPopup(id) {
+    const p = products.find(x => x.id === id);
+    Swal.fire({
+        title: p.name,
+        html: `<img src="${p.img}" class="w-full rounded-xl mb-4"><p class="text-xl font-bold text-red-600">Rp ${p.price.toLocaleString()}</p><div class="grid gap-2 mt-4"><button onclick="addToCart(${p.id}); Swal.close()" class="bg-orange-500 text-white p-3 rounded-lg font-bold">🛒 Tambah Keranjang</button><a href="${p.link}" target="_blank" class="bg-red-600 text-white p-3 rounded-lg font-bold text-center text-sm">Cek di Shopee</a></div>`,
+        showConfirmButton: false, showCloseButton: true
+    });
+}
+
+function startCountdown() {
+    const end = new Date(); end.setHours(24, 0, 0, 0);
+    setInterval(() => {
+        const diff = end - new Date();
+        document.getElementById('hours').innerText = String(Math.floor(diff/3600000)).padStart(2,'0');
+        document.getElementById('minutes').innerText = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+        document.getElementById('seconds').innerText = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+    }, 1000);
+}
+
+window.onload = () => {
+    renderProducts();
+    startCountdown();
+    new Swiper(".heroSwiper", { autoplay: { delay: 4000 }, pagination: { el: ".swiper-pagination" }, loop: true });
+    new Swiper(".testiSwiper", { autoplay: { delay: 5000 }, loop: true });
+};
+</script>
+</body>
+</html>
